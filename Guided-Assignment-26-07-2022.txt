@@ -1,0 +1,222 @@
+Name - Sidharth Koli
+Email - sidharth.mahour@gmail.com
+
+32-01
+
+package guidedDay32;
+import java.util.*;
+
+public class ArrayListOperations {
+	public static void main(String []args) {
+			ArrayList<String> arrli = new ArrayList<String>();
+			arrli.add("C");
+			arrli.add("C++");
+			arrli.add("Java");
+			arrli.add("Python");
+				
+				
+			System.out.println("Size of the ArrayList is: " + arrli.size());
+			System.out.println("ArrayList is Empty: " + arrli.isEmpty());
+			System.out.println("ArrayList at index 0: " + arrli.get(0));
+			
+			arrli.set(3,"Python3");
+			System.out.println("ArrayList After changes: " + arrli);
+			
+			System.out.println("Before Appending the List: "+ arrli);
+			arrli.add("R");
+			arrli.add("MySQL");
+			arrli.add("save");
+			arrli.add("vase");
+			System.out.println("After Appending the List: "+ arrli);
+			
+			System.out.println("Anagram List: " + getAnagram(arrli));
+			}
+	
+	public static ArrayList getAnagram(ArrayList a1) {
+		ArrayList<String> anagList = new ArrayList<String>();
+		for(int i=0; i< a1.size()-1; i++)
+		{
+			for(int j=i+1; j<a1.size(); j++)
+			{	
+				char []str1 = ((String) a1.get(i)).toCharArray();
+				char []str2 = ((String) a1.get(j)).toCharArray();
+				Arrays.sort(str1);
+				Arrays.sort(str2);
+		        if(Arrays.equals(str1,str2)) {
+		        	anagList.add((String) a1.get(i));
+		        	anagList.add((String) a1.get(j));
+		        }
+			}
+		}
+		return anagList;
+	}
+	
+	}
+
+
+package guidedDay32;
+import java.util.*;
+
+public class LinkedListOperation {
+	public static void main(String []args) {
+	LinkedList<String> linkedli = new LinkedList<String>();
+
+		linkedli.add("C");
+		linkedli.add("C++");
+		linkedli.add("C#");
+		linkedli.add("COBOL");
+		System.out.println("LinkedList: "+ linkedli);
+
+		linkedli.addFirst("Python"); // addFirst() 
+		System.out.println("Using addFirst in LinkedList: "+ linkedli);
+		
+		linkedli.addLast("Java");  //addLast()
+		System.out.println("Using addlast in LinkedList: "+ linkedli);
+		
+		LinkedList<String> linkedli2 = new LinkedList<String>();
+		linkedli2.addAll(linkedli); //addAll()
+		System.out.println("Using addAll in linkedli2: "+ linkedli2);
+		
+		System.out.println("size of LinkedList: "+ linkedli.size()); // size()
+		
+		System.out.println("Finding index: "+ linkedli.indexOf("COBOL")); // indexOf()
+		
+		System.out.println("Finding last index of first linkedlist: "+ linkedli.lastIndexOf("COBOL"));
+		System.out.println("Finding last index of first linkedlist: "+ linkedli2.lastIndexOf("Python")); //lastIndexof()
+		
+		System.out.println("Peek First: "+ linkedli.peekFirst()); //peekFirst()
+		
+		System.out.println("Peek Last: "+ linkedli.peekLast()); //peekLast()
+		
+		System.out.println("Before Poll First: "+ linkedli);
+		System.out.println("Poll First: "+ linkedli.pollFirst()); //pollFirst()
+		System.out.println("After Poll First: "+ linkedli);
+		
+		System.out.println("Before Poll Last: "+ linkedli);
+		System.out.println("Poll Last: "+ linkedli.pollLast()); //peekFirst()
+		System.out.println("After Poll Last: "+ linkedli);
+		
+		
+	}
+}
+
+package guidedDay32;
+import java.util.*;
+
+public class SimilarSetElements {
+	public static void main(String args[]) {
+		Set<Integer> set1 = new HashSet<Integer>();
+		set1.addAll(Arrays.asList(new Integer[] { 1, 2, 3, 4, 5, 6}));
+		
+		Set<Integer> set2 = new HashSet<Integer>();
+		set2.addAll(Arrays.asList(new Integer[] { 3, 4, 5, 6, 7 ,8}));
+		
+		set1.retainAll(set2);
+		
+		System.out.println(set1);
+	}
+}
+
+
+
+32-02
+
+package guidedDay32;
+
+public class Movie {
+	private String name; 
+	private String directorName;
+	private int duration;
+	private int releasedYear;
+	
+	public Movie(String name, String directorName, int duration, int releasedYear) {
+		super();
+		this.name = name;
+		this.directorName = directorName;
+		this.duration = duration;
+		this.releasedYear = releasedYear;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getDirectorName() {
+		return directorName;
+	}
+	
+	public void setDirectorName(String directorName) {
+		this.directorName = directorName;
+	}
+	
+	public int getDuration() {
+		return duration;
+	}
+	
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+	
+	public int getReleasedYear() {
+		return releasedYear;
+	}
+	
+	public void setReleasedYear(int releasedYear) {
+		this.releasedYear = releasedYear;
+	}
+	
+}
+
+
+package guidedDay32;
+
+import java.util.*;
+
+public class MovieMain {
+	public static void main(String args[]) {
+		ArrayList<Movie> mov = new ArrayList<Movie>();
+		Movie m1 = new Movie("Mechanic: Resurrection","Dennis Gansel", 98, 2016);
+		Movie m2 = new Movie("Wrath of Man","Guy Ritchie", 118, 2021);
+		Movie m3 = new Movie("3 Idiots","Rajkumar Hirani", 171, 2009);
+		Movie m4 = new Movie("Sanju","Rajkumar Hirani", 155, 2018);
+		Movie m5 = new Movie("Men in Black III","Barry Sonnenfeld", 106, 2016);
+		Movie m6 = new Movie("Sultan","Kabir Khan", 125, 2016);
+		Movie m7 = new Movie("The Wave","Dennis Gansel", 108, 2008);
+		Movie m8 = new Movie("83","Kabir Khan", 165, 2021);
+		Movie m9 = new Movie("Men in Black","Barry Sonnenfeld", 98, 1997);
+		Movie m10 = new Movie("Phantom","Kabir Khan", 136, 2015);
+		
+		List<Movie> movieList=new ArrayList<Movie>();
+		
+		movieList.add(m1);
+		movieList.add(m2);
+		movieList.add(m3);
+		movieList.add(m4);
+		movieList.add(m5);
+		movieList.add(m6);
+		movieList.add(m7);
+		movieList.add(m8);
+		movieList.add(m9);
+		movieList.add(m10);
+		
+		Map<String, List<String>> movieDirectorNames = new HashMap<String,List<String>>();
+		
+		for(Movie m: movieList) {
+			List<String> allMoviesName = new ArrayList<String>();
+			allMoviesName.add(m.getName());
+			if(movieDirectorNames.containsKey(m.getDirectorName()))
+				movieDirectorNames.get(m.getDirectorName()).add(m.getName());
+			else
+				movieDirectorNames.put(m.getDirectorName(),allMoviesName);
+		}
+		
+		for(Map.Entry m: movieDirectorNames.entrySet()) {
+			System.out.println(m.getKey()+ ": "+ m.getValue());
+		}
+		
+	}
+}
