@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin-top: 20px;
+}
+.city {
+  margin-left: 35%;
+  color: black;
+  padding: 10px;
+}
+.container-fluid{
+    background-color: whitesmoke;
+    color: brown;
+}
+h1{
+    color: blue;
+}
